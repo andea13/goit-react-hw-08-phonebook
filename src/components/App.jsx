@@ -1,13 +1,4 @@
-import PhonebookForm from './PhonebookForm/PhonebookForm';
-import { ContactsList } from './ContactsList/ContactsList';
-import { ContactsFilter } from '../components/ContactsFilter/ContactsFilter';
-import {
-  PhonebookTitle,
-  PhonebookContainer,
-  ContactsContainer,
-  ContactsTitle,
-} from './App.styled';
-import { Routes, Route, NavLink, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import HomePage from 'pages/HomePage';
 import ContactsPage from 'pages/ContactsPage';
 import RegistrationPage from 'pages/RegistrationPage';
@@ -34,15 +25,6 @@ const App = () => {
           <Route path="/contacts" element={<ContactsPage />}></Route>
         </Route>
       </Routes>
-      {/* <PhonebookContainer>
-        <PhonebookTitle>Phonebook</PhonebookTitle>
-        <PhonebookForm />
-      </PhonebookContainer>
-      <ContactsContainer>
-        <ContactsTitle>Contacts</ContactsTitle>
-        <ContactsFilter />
-        <ContactsList />
-      </ContactsContainer> */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import ContactsPage from 'pages/ContactsPage';
-import HomePage from 'pages/HomePage';
+// import ContactsPage from 'pages/ContactsPage';
+// import HomePage from 'pages/HomePage';
 
 import { NavLink } from 'react-router-dom';
 import {
