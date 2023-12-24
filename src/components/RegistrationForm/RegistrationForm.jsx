@@ -6,6 +6,7 @@ import {
   RegistrationFormLabel,
   RegistrationFormInput,
   RegistrationFormButton,
+  RegistrationFormItem,
 } from './RegistrationForm.styled';
 
 const RegistrationForm = () => {
@@ -14,7 +15,7 @@ const RegistrationForm = () => {
       <RegistrationFormTitle>Please, fill in to register</RegistrationFormTitle>
       <RegistrationFormWrapper>
         <RegistrationFormList>
-          <li>
+          <RegistrationFormItem>
             <RegistrationFormLabel>
               Username
               <RegistrationFormInput
@@ -23,8 +24,8 @@ const RegistrationForm = () => {
                 autoComplete="off"
               />
             </RegistrationFormLabel>
-          </li>
-          <li>
+          </RegistrationFormItem>
+          <RegistrationFormItem>
             <RegistrationFormLabel>
               Email
               <RegistrationFormInput
@@ -33,8 +34,9 @@ const RegistrationForm = () => {
                 autoComplete="off"
               />
             </RegistrationFormLabel>
-          </li>
-          <li>
+          </RegistrationFormItem>
+
+          <RegistrationFormItem>
             <RegistrationFormLabel>
               Password
               <RegistrationFormInput
@@ -43,7 +45,7 @@ const RegistrationForm = () => {
                 autoComplete="off"
               />
             </RegistrationFormLabel>
-          </li>
+          </RegistrationFormItem>
         </RegistrationFormList>
 
         <RegistrationFormButton type="submit">Register</RegistrationFormButton>

@@ -12,7 +12,7 @@ export const MainNavList = styled.ul`
 `;
 
 export const MainNavListItem = styled.li`
-  &:first-child {
+  &:first-of-type {
     margin-right: 30px;
   }
 `;

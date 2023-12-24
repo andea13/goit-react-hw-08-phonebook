@@ -1,16 +1,37 @@
+import {
+  LoginFormContainer,
+  LoginFormWrapper,
+  LoginFormTitle,
+  LoginFormList,
+  LoginFormItem,
+  LoginFormLabel,
+  LoginFormInput,
+  LoginFormButton,
+} from './LoginForm.styled';
+
 const LoginForm = () => {
   return (
-    <form>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <LoginFormContainer>
+      <LoginFormTitle>Please, log in </LoginFormTitle>
+      <LoginFormWrapper>
+        <LoginFormList>
+          <LoginFormItem>
+            <LoginFormLabel>
+              Email
+              <LoginFormInput type="email" name="email" />
+            </LoginFormLabel>
+          </LoginFormItem>
+          <LoginFormItem>
+            <LoginFormLabel>
+              Password
+              <LoginFormInput type="password" name="password" />
+            </LoginFormLabel>
+          </LoginFormItem>
+        </LoginFormList>
+
+        <LoginFormButton type="submit">Log In</LoginFormButton>
+      </LoginFormWrapper>
+    </LoginFormContainer>
   );
 };
 
