@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, FormLabel, FormInput, FormButton } from './PhonebookForm.styled';
-import { addContact } from '../../redux/operations';
-import { selectContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/contacts/operations';
+import { selectContacts } from '../../redux/contacts/selectors';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -9,8 +9,7 @@ const PhonebookForm = () => {
   const [inputs, setInputs] = useState({ name: '', number: '' });
   const dispatch = useDispatch();
 
-  const contacts = useSelector(selectContacts);
-
+  const { items } = useSelector(selectContacts);
   const handleChange = event => {
     const { name, value } = event.target;
 
@@ -25,7 +24,7 @@ const PhonebookForm = () => {
       return;
     }
 
-    const duplicate = contacts.find(
+    const duplicate = items.find(
       item => item.name.toLowerCase() === inputs.name.toLowerCase()
     );
     if (duplicate) {
@@ -38,8 +37,15 @@ const PhonebookForm = () => {
       id: nanoid(),
     };
 
-    dispatch(addContact(newContact));
-    reset();
+    console.log(newContact);
+
+    dispatch(addContact(newContact))
+      .then(() => {
+        reset();
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
   };
 
   const reset = () => {

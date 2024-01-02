@@ -2,13 +2,12 @@ import {
   ContactsItem,
   ContactsItemName,
   ContactsItemNumber,
-  ContactsItemCreatedAt,
   ContactsItemButton,
 } from './ContactsListItem.styled';
-import { deleteContact } from '../../redux/operations';
+import { deleteContact } from '../../redux/contacts/operations';
 import { useDispatch } from 'react-redux';
 
-export const ContactsListItem = ({ createdAt, name, phone, id }) => {
+export const ContactsListItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -18,8 +17,7 @@ export const ContactsListItem = ({ createdAt, name, phone, id }) => {
   return (
     <ContactsItem key={id}>
       <ContactsItemName>Name: {name} </ContactsItemName>
-      <ContactsItemNumber>Phone: {phone}</ContactsItemNumber>
-      <ContactsItemCreatedAt>Created at: {createdAt}: </ContactsItemCreatedAt>
+      <ContactsItemNumber>Phone: {number}</ContactsItemNumber>
       <ContactsItemButton type="button" onClick={handleDelete}>
         Delete
       </ContactsItemButton>

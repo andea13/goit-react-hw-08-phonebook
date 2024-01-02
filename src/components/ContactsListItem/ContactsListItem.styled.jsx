@@ -18,15 +18,6 @@ export const ContactsItemNumber = styled.p`
   font-size: 30px;
 `;
 
-export const ContactsItemCreatedAt = styled.p`
-  font-size: 30px;
-  display: block;
-`;
-
-// export const ContactsItemSpan = styled.span`
-//   color: blue;
-// `;
-
 export const ContactsItemButton = styled.button`
   width: 100px;
   height: 25px;

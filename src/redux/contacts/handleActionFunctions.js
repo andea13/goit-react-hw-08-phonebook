@@ -14,6 +14,7 @@ export const handleFetchAllContactsFullfilled = (state, action) => {
 };
 
 export const handleAddContactFulfilled = (state, action) => {
+  console.log(action.payload);
   state.contacts.isLoading = false;
   state.contacts.error = null;
   state.contacts.items = [...state.contacts.items, action.payload];
