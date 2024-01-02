@@ -1,12 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import HomePage from 'pages/HomePage';
-import ContactsPage from 'pages/ContactsPage';
-import RegistrationPage from 'pages/RegistrationPage';
-import LoginPage from 'pages/LoginPage';
 import { Layout } from './Layout';
 import { refreshCurrentUser } from '../redux/auth/operations';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 // import { selectIsLoggedIn } from '../redux/auth/selectors';
 // import { useSelector } from 'react-redux';
 
@@ -16,6 +12,11 @@ const App = () => {
   useEffect(() => {
     dispatch(refreshCurrentUser());
   }, [dispatch]);
+
+  const HomePage = lazy(() => import('pages/HomePage'));
+  const ContactsPage = lazy(() => import('pages/ContactsPage'));
+  const RegistrationPage = lazy(() => import('pages/RegistrationPage'));
+  const LoginPage = lazy(() => import('pages/LoginPage'));
 
   return (
     <div
@@ -28,14 +29,15 @@ const App = () => {
         color: '#010101',
       }}
     >
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />}></Route>
+      <Layout />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
           <Route path="/register" element={<RegistrationPage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/contacts" element={<ContactsPage />}></Route>
-        </Route>
-      </Routes>
+        </Routes>
+      </Suspense>
     </div>
   );
 };
