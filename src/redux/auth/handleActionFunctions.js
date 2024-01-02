@@ -31,3 +31,9 @@ export const handleLogOutFulfilled = state => {
   state.user = { name: null, email: null, password: null };
   state.token = null;
 };
+
+export const handleFetchCurrentUserFulfilled = (state, action) => {
+  state.user = { ...action.payload };
+  state.isLoggedIn = true;
+  console.log(action);
+};

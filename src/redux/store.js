@@ -15,11 +15,13 @@ import {
 const authPersistConfig = {
   key: 'auth',
   storage,
+  whitelist: ['token'],
 };
 
 const contactsPersistConfig = {
   key: 'contacts',
   storage,
+  // whitelist: ['items'],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, AuthReducer);

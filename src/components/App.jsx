@@ -4,11 +4,19 @@ import ContactsPage from 'pages/ContactsPage';
 import RegistrationPage from 'pages/RegistrationPage';
 import LoginPage from 'pages/LoginPage';
 import { Layout } from './Layout';
+import { refreshCurrentUser } from '../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 // import { selectIsLoggedIn } from '../redux/auth/selectors';
 // import { useSelector } from 'react-redux';
 
 const App = () => {
   // const isLoggedIn = useSelector(selectIsLoggedIn);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshCurrentUser());
+  }, [dispatch]);
+
   return (
     <div
       style={{
@@ -25,9 +33,7 @@ const App = () => {
           <Route index element={<HomePage />}></Route>
           <Route path="/register" element={<RegistrationPage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
-          {/* {isLoggedIn && ( */}
           <Route path="/contacts" element={<ContactsPage />}></Route>
-          {/* )} */}
         </Route>
       </Routes>
     </div>
