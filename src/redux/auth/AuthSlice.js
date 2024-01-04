@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logOut, refreshCurrentUser } from './operations';
+import { register, login, logOut, refreshCurrentUser } from './authOperations';
 import {
   handleRegisterFulfilled,
   handleLoginFulfilled,

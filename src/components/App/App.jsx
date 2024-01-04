@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
-import { refreshCurrentUser } from '../../redux/auth/operations';
+import { refreshCurrentUser } from '../../redux/auth/authOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, Suspense, lazy } from 'react';
 import { selectIsFetchingCurrentUser } from '../../redux/auth/selectors';
 import { Container } from './App.styled';
-import Layout from '../Layout';
+import Layout from '../Layout/Layout';
 import Loader from '../Loader/Loader';
-import PrivateRoute from '../PrivateRoute';
-import PublicRoute from '../PublicRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import PublicRoute from '../PublicRoute/PublicRoute';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));

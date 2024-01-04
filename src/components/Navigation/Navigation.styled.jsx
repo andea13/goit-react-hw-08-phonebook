@@ -1,3 +1,4 @@
+import { NavLink as StyledLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const MainNavWrapper = styled.nav`
@@ -15,4 +16,12 @@ export const MainNavListItem = styled.li`
   &:first-of-type {
     margin-right: 30px;
   }
+`;
+
+export const NavLink = styled(StyledLink)`
+  color: #fff;
+
+  // &.active {
+  //   color: #f00; // change this to your desired active color
+  // }
 `;

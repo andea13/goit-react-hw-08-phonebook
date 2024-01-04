@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { Form, FormLabel, FormInput, FormButton } from './PhonebookForm.styled';
-import { addContact } from '../../redux/contacts/operations';
+import { Form, FormLabel } from './PhonebookForm.styled';
+import { addContact } from '../../redux/contacts/contactsOperations';
 import { selectContacts } from '../../redux/contacts/selectors';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const PhonebookForm = () => {
   const [inputs, setInputs] = useState({ name: '', number: '' });
@@ -56,26 +58,32 @@ const PhonebookForm = () => {
     <Form onSubmit={handleSubmit}>
       <FormLabel>
         Name
-        <FormInput
+        <TextField
           value={inputs.name}
           onChange={handleChange}
           type="text"
           name="name"
           required
+          id="outlined-basic"
+          variant="outlined"
         />
       </FormLabel>
 
       <FormLabel>
         Number
-        <FormInput
+        <TextField
           value={inputs.number}
           onChange={handleChange}
           type="tel"
           name="number"
           required
+          id="outlined-basic"
+          variant="outlined"
         />
       </FormLabel>
-      <FormButton type="submit">Add contact</FormButton>
+      <Button type="submit" variant="contained">
+        Add contact
+      </Button>
     </Form>
   );
 };

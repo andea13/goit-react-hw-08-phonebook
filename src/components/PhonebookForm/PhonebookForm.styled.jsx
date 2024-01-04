@@ -2,11 +2,13 @@ import styled from '@emotion/styled';
 
 export const Form = styled.form`
   width: 500px;
+  margin-bottom: 15px;
 `;
 
 export const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
 `;
 
 export const FormInput = styled.input`

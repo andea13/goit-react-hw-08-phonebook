@@ -2,10 +2,10 @@ import {
   ContactsItem,
   ContactsItemName,
   ContactsItemNumber,
-  ContactsItemButton,
 } from './ContactsListItem.styled';
-import { deleteContact } from '../../redux/contacts/operations';
+import { deleteContact } from '../../redux/contacts/contactsOperations';
 import { useDispatch } from 'react-redux';
+import Button from '@mui/material/Button';
 
 export const ContactsListItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -18,9 +18,9 @@ export const ContactsListItem = ({ name, number, id }) => {
     <ContactsItem key={id}>
       <ContactsItemName>Name: {name} </ContactsItemName>
       <ContactsItemNumber>Phone: {number}</ContactsItemNumber>
-      <ContactsItemButton type="button" onClick={handleDelete}>
+      <Button type="button" onClick={handleDelete} variant="contained">
         Delete
-      </ContactsItemButton>
+      </Button>
     </ContactsItem>
   );
 };

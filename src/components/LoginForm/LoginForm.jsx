@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
-import { login } from '../../redux/auth/operations';
+import { login } from '../../redux/auth/authOperations';
 
 import {
   LoginFormContainer,
@@ -10,9 +10,9 @@ import {
   LoginFormList,
   LoginFormItem,
   LoginFormLabel,
-  LoginFormInput,
-  LoginFormButton,
 } from './LoginForm.styled';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const LoginForm = () => {
   const [loginInputs, setLoginInputs] = useState({ email: '', password: '' });
@@ -61,30 +61,36 @@ const LoginForm = () => {
           <LoginFormItem>
             <LoginFormLabel>
               Email
-              <LoginFormInput
+              <TextField
                 type="email"
                 name="email"
                 value={loginInputs.email}
                 onChange={handleChange}
                 autoComplete="off"
+                id="outlined-basic"
+                variant="outlined"
               />
             </LoginFormLabel>
           </LoginFormItem>
           <LoginFormItem>
             <LoginFormLabel>
               Password
-              <LoginFormInput
+              <TextField
                 type="password"
                 name="password"
                 value={loginInputs.password}
                 onChange={handleChange}
                 autoComplete="off"
+                id="outlined-basic"
+                variant="outlined"
               />
             </LoginFormLabel>
           </LoginFormItem>
         </LoginFormList>
 
-        <LoginFormButton type="submit">Log In</LoginFormButton>
+        <Button type="submit" variant="contained">
+          Log In
+        </Button>
       </LoginFormWrapper>
     </LoginFormContainer>
   );

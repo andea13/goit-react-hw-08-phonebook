@@ -1,7 +1,4 @@
-// import ContactsPage from 'pages/ContactsPage';
-// import HomePage from 'pages/HomePage';
-
-import { NavLink } from 'react-router-dom';
+import { NavLink } from './Navigation.styled';
 import {
   MainNavList,
   MainNavListItem,
@@ -13,17 +10,11 @@ const Navigation = () => {
     <MainNavWrapper>
       <MainNavList>
         <MainNavListItem>
-          <NavLink to="/">
-            HomePage
-            {/* <HomePage /> */}
-          </NavLink>
+          <NavLink to="/">Home Page</NavLink>
         </MainNavListItem>
 
         <MainNavListItem>
-          <NavLink to="/contacts">
-            Contacts
-            {/* <ContactsPage /> */}
-          </NavLink>
+          <NavLink to="/contacts">Contacts</NavLink>
         </MainNavListItem>
       </MainNavList>
     </MainNavWrapper>

@@ -17,6 +17,7 @@ export const UserMenuButton = styled.button`
   font-size: 22px;
   margin-left: auto;
   margin-right: auto;
+  color: #1976d2;
   border-radius: 8px;
   border: 1px solid #eaeaed;
 `;

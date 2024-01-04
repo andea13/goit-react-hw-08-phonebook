@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { register } from '../../redux/auth/operations';
+import { register } from '../../redux/auth/authOperations';
 import { useState } from 'react';
 import {
   RegistrationFormContainer,
@@ -8,10 +8,10 @@ import {
   RegistrationFormWrapper,
   RegistrationFormList,
   RegistrationFormLabel,
-  RegistrationFormInput,
-  RegistrationFormButton,
   RegistrationFormItem,
 } from './RegistrationForm.styled';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const RegistrationForm = () => {
   const [inputs, setInputs] = useState({
@@ -71,26 +71,30 @@ const RegistrationForm = () => {
           <RegistrationFormItem>
             <RegistrationFormLabel>
               Username
-              <RegistrationFormInput
+              <TextField
                 value={inputs.name}
                 type="text"
                 name="name"
                 autoComplete="off"
                 onChange={handleChange}
                 required
+                id="outlined-basic"
+                variant="outlined"
               />
             </RegistrationFormLabel>
           </RegistrationFormItem>
           <RegistrationFormItem>
             <RegistrationFormLabel>
               Email
-              <RegistrationFormInput
+              <TextField
                 value={inputs.email}
                 onChange={handleChange}
                 type="email"
                 name="email"
                 autoComplete="off"
                 required
+                id="outlined-basic"
+                variant="outlined"
               />
             </RegistrationFormLabel>
           </RegistrationFormItem>
@@ -98,19 +102,23 @@ const RegistrationForm = () => {
           <RegistrationFormItem>
             <RegistrationFormLabel>
               Password
-              <RegistrationFormInput
+              <TextField
                 value={inputs.password}
                 onChange={handleChange}
                 type="password"
                 name="password"
                 autoComplete="off"
                 required
+                id="outlined-basic"
+                variant="outlined"
               />
             </RegistrationFormLabel>
           </RegistrationFormItem>
         </RegistrationFormList>
 
-        <RegistrationFormButton type="submit">Register</RegistrationFormButton>
+        <Button type="submit" variant="contained">
+          Register
+        </Button>
       </RegistrationFormWrapper>
     </RegistrationFormContainer>
   );

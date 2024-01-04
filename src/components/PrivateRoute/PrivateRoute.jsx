@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import {
   selectIsLoggedIn,
   selectIsFetchingCurrentUser,
-} from '../redux/auth/selectors';
+} from '../../redux/auth/selectors';
 
 export default function PrivateRoute({ children }) {
   const isLoggedIn = useSelector(selectIsLoggedIn);

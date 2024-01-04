@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { ContactsReducer } from './contacts/ContactsSlice';
-import { AuthReducer } from './auth/operations';
+import { AuthReducer } from '../redux/auth/authOperations';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {
