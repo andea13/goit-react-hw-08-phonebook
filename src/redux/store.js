@@ -21,7 +21,7 @@ const authPersistConfig = {
 const contactsPersistConfig = {
   key: 'contacts',
   storage,
-  // whitelist: ['items'],
+  whitelist: ['items'],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, AuthReducer);

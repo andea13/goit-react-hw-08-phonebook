@@ -7,13 +7,15 @@ import {
   handleFetchCurrentUserFulfilled,
   handlePending,
   handleRejected,
+  handleFetchCurrentUserPending,
+  handleFetchCurrentUserRejected,
 } from './handleActionFunctions';
 
 const initialState = {
   user: { name: null, email: null, password: null },
   token: null,
-  isLoading: false,
   isLoggedIn: false,
+  isFetchingCurrentUser: false,
 };
 
 export const AuthSlice = createSlice({
@@ -30,8 +32,8 @@ export const AuthSlice = createSlice({
       .addCase(logOut.pending, handlePending)
       .addCase(logOut.fulfilled, handleLogOutFulfilled)
       .addCase(logOut.rejected, handleRejected)
-      .addCase(refreshCurrentUser.pending, handlePending)
+      .addCase(refreshCurrentUser.pending, handleFetchCurrentUserPending)
       .addCase(refreshCurrentUser.fulfilled, handleFetchCurrentUserFulfilled)
-      .addCase(refreshCurrentUser.rejected, handleRejected);
+      .addCase(refreshCurrentUser.rejected, handleFetchCurrentUserRejected);
   },
 });

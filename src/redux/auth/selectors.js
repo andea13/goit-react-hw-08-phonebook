@@ -7,6 +7,10 @@ export const selectIsLoggedIn = state => {
   return state.auth.isLoggedIn;
 };
 
+export const selectIsFetchingCurrentUser = state => {
+  return state.auth.isFetchingCurrentUser;
+};
+
 // const selectAuth = state => state;
 // const state = selectAuth();
 // console.log(state);
