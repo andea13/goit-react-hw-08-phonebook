@@ -20,7 +20,6 @@ export const ContactsFilter = () => {
         type="text"
         value={`${filter}`}
         onChange={({ target: { value } }) => handleChange(value)}
-        id="outlined-basic"
         variant="outlined"
       />
     </FilterLabel>

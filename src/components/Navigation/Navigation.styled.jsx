@@ -21,7 +21,7 @@ export const MainNavListItem = styled.li`
 export const NavLink = styled(StyledLink)`
   color: #fff;
 
-  // &.active {
-  //   color: #f00; // change this to your desired active color
-  // }
+  &.active {
+    color: #fce9af;
+  }
 `;

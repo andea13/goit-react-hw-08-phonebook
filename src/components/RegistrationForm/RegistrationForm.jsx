@@ -12,6 +12,7 @@ import {
 } from './RegistrationForm.styled';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import toast, { Toaster } from 'react-hot-toast';
 
 const RegistrationForm = () => {
   const [inputs, setInputs] = useState({
@@ -21,8 +22,6 @@ const RegistrationForm = () => {
   });
 
   const dispatch = useDispatch();
-
-  // const contacts = useSelector(selectContacts);
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -38,18 +37,14 @@ const RegistrationForm = () => {
       !inputs.email.trim() ||
       !inputs.password.trim()
     ) {
-      alert('Please fill in all the fields');
+      toast.error('Please fill in all the fields');
       return;
     }
-
-    console.log(inputs);
 
     const newUser = {
       ...inputs,
       id: nanoid(),
     };
-
-    console.log(newUser);
 
     dispatch(register(newUser));
     reset();
@@ -65,6 +60,20 @@ const RegistrationForm = () => {
 
   return (
     <RegistrationFormContainer>
+      <Toaster
+        toastOptions={{
+          success: {
+            style: {
+              background: 'green',
+            },
+          },
+          error: {
+            style: {
+              background: 'red',
+            },
+          },
+        }}
+      />
       <RegistrationFormTitle>Please, fill in to register</RegistrationFormTitle>
       <RegistrationFormWrapper onSubmit={handleSubmit}>
         <RegistrationFormList>
@@ -78,7 +87,6 @@ const RegistrationForm = () => {
                 autoComplete="off"
                 onChange={handleChange}
                 required
-                id="outlined-basic"
                 variant="outlined"
               />
             </RegistrationFormLabel>
@@ -93,7 +101,6 @@ const RegistrationForm = () => {
                 name="email"
                 autoComplete="off"
                 required
-                id="outlined-basic"
                 variant="outlined"
               />
             </RegistrationFormLabel>
@@ -109,7 +116,6 @@ const RegistrationForm = () => {
                 name="password"
                 autoComplete="off"
                 required
-                id="outlined-basic"
                 variant="outlined"
               />
             </RegistrationFormLabel>

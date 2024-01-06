@@ -19,4 +19,7 @@ export const AuthNavListItem = styled.li`
 
 export const NavLink = styled(StyledLink)`
   color: #fff;
+  &.active {
+    color: #fce9af;
+  }
 `;

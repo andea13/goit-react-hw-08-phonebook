@@ -13,6 +13,7 @@ import {
 } from './LoginForm.styled';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import toast, { Toaster } from 'react-hot-toast';
 
 const LoginForm = () => {
   const [loginInputs, setLoginInputs] = useState({ email: '', password: '' });
@@ -28,7 +29,7 @@ const LoginForm = () => {
     event.preventDefault();
 
     if (!loginInputs.email.trim() || !loginInputs.password) {
-      alert('Please fill in all the fields');
+      toast.error('Please fill in all the fields');
       return;
     }
 
@@ -55,6 +56,20 @@ const LoginForm = () => {
 
   return (
     <LoginFormContainer>
+      <Toaster
+        toastOptions={{
+          success: {
+            style: {
+              background: 'green',
+            },
+          },
+          error: {
+            style: {
+              background: 'red',
+            },
+          },
+        }}
+      />
       <LoginFormTitle>Please, log in </LoginFormTitle>
       <LoginFormWrapper onSubmit={handleSubmit}>
         <LoginFormList>
@@ -67,7 +82,6 @@ const LoginForm = () => {
                 value={loginInputs.email}
                 onChange={handleChange}
                 autoComplete="off"
-                id="outlined-basic"
                 variant="outlined"
               />
             </LoginFormLabel>
@@ -81,7 +95,6 @@ const LoginForm = () => {
                 value={loginInputs.password}
                 onChange={handleChange}
                 autoComplete="off"
-                id="outlined-basic"
                 variant="outlined"
               />
             </LoginFormLabel>

@@ -6,12 +6,14 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import toast, { Toaster } from 'react-hot-toast';
 
 const PhonebookForm = () => {
   const [inputs, setInputs] = useState({ name: '', number: '' });
   const dispatch = useDispatch();
 
   const { items } = useSelector(selectContacts);
+
   const handleChange = event => {
     const { name, value } = event.target;
 
@@ -22,7 +24,7 @@ const PhonebookForm = () => {
     event.preventDefault();
 
     if (!inputs.name.trim() || !inputs.number.trim()) {
-      alert('Please fill in all the fields');
+      toast.error('Please fill in all the fields');
       return;
     }
 
@@ -30,7 +32,7 @@ const PhonebookForm = () => {
       item => item.name.toLowerCase() === inputs.name.toLowerCase()
     );
     if (duplicate) {
-      alert(`${inputs.name} is already in contacts`);
+      toast.error(`${inputs.name} is already in contacts`);
       return;
     }
 
@@ -38,8 +40,6 @@ const PhonebookForm = () => {
       ...inputs,
       id: nanoid(),
     };
-
-    console.log(newContact);
 
     dispatch(addContact(newContact))
       .then(() => {
@@ -56,6 +56,20 @@ const PhonebookForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <Toaster
+        toastOptions={{
+          success: {
+            style: {
+              background: 'green',
+            },
+          },
+          error: {
+            style: {
+              background: 'red',
+            },
+          },
+        }}
+      />
       <FormLabel>
         Name
         <TextField
@@ -64,7 +78,6 @@ const PhonebookForm = () => {
           type="text"
           name="name"
           required
-          id="outlined-basic"
           variant="outlined"
         />
       </FormLabel>
@@ -77,7 +90,6 @@ const PhonebookForm = () => {
           type="tel"
           name="number"
           required
-          id="outlined-basic"
           variant="outlined"
         />
       </FormLabel>
