@@ -23,8 +23,13 @@ const PhonebookForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    if (!inputs.name.trim() || !inputs.number.trim()) {
-      toast.error('Please fill in all the fields');
+    if (
+      !inputs.name ||
+      !inputs.name.trim() ||
+      !inputs.number ||
+      !inputs.number.trim()
+    ) {
+      toast.error(`Please fill out all the fields`);
       return;
     }
 
@@ -55,48 +60,46 @@ const PhonebookForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <>
       <Toaster
         toastOptions={{
-          success: {
-            style: {
-              background: 'green',
-            },
-          },
           error: {
             style: {
               background: 'red',
+              duration: 2000,
+              position: 'top-right',
+              animation: 'custom-enter 1s ease, custom-exit 1s ease',
             },
           },
         }}
       />
-      <FormLabel>
-        Name
-        <TextField
-          value={inputs.name}
-          onChange={handleChange}
-          type="text"
-          name="name"
-          required
-          variant="outlined"
-        />
-      </FormLabel>
+      <Form onSubmit={handleSubmit}>
+        <FormLabel>
+          Name
+          <TextField
+            value={inputs.name}
+            onChange={handleChange}
+            type="text"
+            name="name"
+            variant="outlined"
+          />
+        </FormLabel>
 
-      <FormLabel>
-        Number
-        <TextField
-          value={inputs.number}
-          onChange={handleChange}
-          type="tel"
-          name="number"
-          required
-          variant="outlined"
-        />
-      </FormLabel>
-      <Button type="submit" variant="contained">
-        Add contact
-      </Button>
-    </Form>
+        <FormLabel>
+          Number
+          <TextField
+            value={inputs.number}
+            onChange={handleChange}
+            type="tel"
+            name="number"
+            variant="outlined"
+          />
+        </FormLabel>
+        <Button type="submit" variant="contained">
+          Add contact
+        </Button>
+      </Form>
+    </>
   );
 };
 

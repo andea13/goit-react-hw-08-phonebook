@@ -58,14 +58,12 @@ const LoginForm = () => {
     <LoginFormContainer>
       <Toaster
         toastOptions={{
-          success: {
-            style: {
-              background: 'green',
-            },
-          },
           error: {
             style: {
               background: 'red',
+              duration: 2000,
+              position: 'top-right',
+              animation: 'custom-enter 1s ease, custom-exit 1s ease',
             },
           },
         }}

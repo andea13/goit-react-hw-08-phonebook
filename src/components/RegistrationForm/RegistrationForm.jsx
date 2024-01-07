@@ -59,74 +59,73 @@ const RegistrationForm = () => {
   };
 
   return (
-    <RegistrationFormContainer>
+    <>
       <Toaster
         toastOptions={{
-          success: {
-            style: {
-              background: 'green',
-            },
-          },
           error: {
             style: {
               background: 'red',
+              duration: 2000,
+              position: 'top-right',
+              animation: 'custom-enter 1s ease, custom-exit 1s ease',
             },
           },
         }}
       />
-      <RegistrationFormTitle>Please, fill in to register</RegistrationFormTitle>
-      <RegistrationFormWrapper onSubmit={handleSubmit}>
-        <RegistrationFormList>
-          <RegistrationFormItem>
-            <RegistrationFormLabel>
-              Username
-              <TextField
-                value={inputs.name}
-                type="text"
-                name="name"
-                autoComplete="off"
-                onChange={handleChange}
-                required
-                variant="outlined"
-              />
-            </RegistrationFormLabel>
-          </RegistrationFormItem>
-          <RegistrationFormItem>
-            <RegistrationFormLabel>
-              Email
-              <TextField
-                value={inputs.email}
-                onChange={handleChange}
-                type="email"
-                name="email"
-                autoComplete="off"
-                required
-                variant="outlined"
-              />
-            </RegistrationFormLabel>
-          </RegistrationFormItem>
+      <RegistrationFormContainer>
+        <RegistrationFormTitle>
+          Please, fill in to register
+        </RegistrationFormTitle>
+        <RegistrationFormWrapper onSubmit={handleSubmit}>
+          <RegistrationFormList>
+            <RegistrationFormItem>
+              <RegistrationFormLabel>
+                Username
+                <TextField
+                  value={inputs.name}
+                  type="text"
+                  name="name"
+                  autoComplete="off"
+                  onChange={handleChange}
+                  variant="outlined"
+                />
+              </RegistrationFormLabel>
+            </RegistrationFormItem>
+            <RegistrationFormItem>
+              <RegistrationFormLabel>
+                Email
+                <TextField
+                  value={inputs.email}
+                  onChange={handleChange}
+                  type="email"
+                  name="email"
+                  autoComplete="off"
+                  variant="outlined"
+                />
+              </RegistrationFormLabel>
+            </RegistrationFormItem>
 
-          <RegistrationFormItem>
-            <RegistrationFormLabel>
-              Password
-              <TextField
-                value={inputs.password}
-                onChange={handleChange}
-                type="password"
-                name="password"
-                autoComplete="off"
-                required
-                variant="outlined"
-              />
-            </RegistrationFormLabel>
-          </RegistrationFormItem>
-        </RegistrationFormList>
+            <RegistrationFormItem>
+              <RegistrationFormLabel>
+                Password
+                <TextField
+                  value={inputs.password}
+                  onChange={handleChange}
+                  type="password"
+                  name="password"
+                  autoComplete="off"
+                  variant="outlined"
+                />
+              </RegistrationFormLabel>
+            </RegistrationFormItem>
+          </RegistrationFormList>
 
-        <Button type="submit" variant="contained">
-          Register
-        </Button>
-      </RegistrationFormWrapper>
-    </RegistrationFormContainer>
+          <Button type="submit" variant="contained">
+            Register
+          </Button>
+        </RegistrationFormWrapper>
+      </RegistrationFormContainer>
+    </>
   );
 };
 
