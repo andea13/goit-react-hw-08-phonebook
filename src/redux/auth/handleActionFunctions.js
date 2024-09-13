@@ -7,7 +7,7 @@ export const handleRejected = (state, action) => {
 };
 
 export const handleRegisterFulfilled = (state, action) => {
-  console.log(state);
+  console.log(state, action);
   if (action.payload && action.payload.user && action.payload.token) {
     console.log('Payload:', action.payload);
     state.isLoggedIn = false;

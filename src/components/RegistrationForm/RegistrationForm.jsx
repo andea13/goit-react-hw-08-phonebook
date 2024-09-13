@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
+// import { nanoid } from '@reduxjs/toolkit';
 import { register } from '../../redux/auth/authOperations';
 import { useState } from 'react';
 import {
@@ -43,7 +43,7 @@ const RegistrationForm = () => {
 
     const newUser = {
       ...inputs,
-      id: nanoid(),
+      // id: nanoid(),
     };
     console.log('New user:', newUser);
 

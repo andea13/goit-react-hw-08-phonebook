@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { nanoid } from '@reduxjs/toolkit';
 import { login } from '../../redux/auth/authOperations';
 
 import {
@@ -35,7 +34,7 @@ const LoginForm = () => {
 
     const registeredUser = {
       ...loginInputs,
-      id: nanoid(),
+      // id: nanoid(),
     };
 
     dispatch(login(registeredUser))

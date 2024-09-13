@@ -1,5 +1,5 @@
 export const selectUser = state => {
-  console.log('State:', state);
+  console.log('State:', state.auth);
   return state.auth.user;
 };
 export const selectIsLoggedIn = state => {

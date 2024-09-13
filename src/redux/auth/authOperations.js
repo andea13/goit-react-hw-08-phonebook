@@ -2,7 +2,7 @@ import axios from 'axios';
 import { AuthSlice } from './AuthSlice';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 const token = {
   set(token) {
@@ -19,10 +19,16 @@ export const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       console.log('Registering with credentials:', credentials);
-      const response = await axios.post('/users/signup', credentials);
+
+      const response = await axios.post('/users/signup', credentials, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      });
       console.log('API Response:', response);
       console.log('API Response:', response.data);
-      token.set(response.data.token);
+      // token.set(response.data.token);
       return response.data;
     } catch (error) {
       console.error('Registration Error:', error.message);
@@ -34,7 +40,9 @@ export const register = createAsyncThunk(
 export const login = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('users/login', credentials);
+    console.log('Login data:', data);
     token.set(data.token);
+
     return data;
   } catch (error) {
     console.log(error.message);
