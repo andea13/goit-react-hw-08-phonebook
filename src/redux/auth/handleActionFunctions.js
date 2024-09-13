@@ -7,11 +7,17 @@ export const handleRejected = (state, action) => {
 };
 
 export const handleRegisterFulfilled = (state, action) => {
-  console.log(action.payload);
-  state.isLoggedIn = false;
-  state.error = null;
-  state.user = action.payload.user;
-  state.token = action.payload.token;
+  console.log(state);
+  if (action.payload && action.payload.user && action.payload.token) {
+    console.log('Payload:', action.payload);
+    state.isLoggedIn = false;
+    state.error = null;
+    state.user = action.payload.user;
+    state.token = action.payload.token;
+    console.log('State updated successfully');
+  } else {
+    console.error('Invalid action payload:', action.payload);
+  }
 };
 
 export const handleLoginFulfilled = (state, action) => {

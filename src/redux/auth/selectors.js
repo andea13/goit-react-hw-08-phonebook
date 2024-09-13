@@ -1,4 +1,5 @@
 export const selectUser = state => {
+  console.log('State:', state);
   return state.auth.user;
 };
 export const selectIsLoggedIn = state => {

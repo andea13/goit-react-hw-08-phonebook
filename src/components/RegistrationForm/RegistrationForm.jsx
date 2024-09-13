@@ -45,6 +45,7 @@ const RegistrationForm = () => {
       ...inputs,
       id: nanoid(),
     };
+    console.log('New user:', newUser);
 
     dispatch(register(newUser));
     reset();

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { AuthSlice } from './AuthSlice';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:3001/';
 
 const token = {
   set(token) {
@@ -14,15 +14,22 @@ const token = {
   },
 };
 
-export const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post('users/signup', credentials);
-    token.set(data.token);
-    return data;
-  } catch (error) {
-    console.log(error.message);
+export const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      console.log('Registering with credentials:', credentials);
+      const response = await axios.post('/users/signup', credentials);
+      console.log('API Response:', response);
+      console.log('API Response:', response.data);
+      token.set(response.data.token);
+      return response.data;
+    } catch (error) {
+      console.error('Registration Error:', error.message);
+      return rejectWithValue(error.response.data);
+    }
   }
-});
+);
 
 export const login = createAsyncThunk('auth/login', async credentials => {
   try {
