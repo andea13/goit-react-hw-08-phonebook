@@ -46,6 +46,8 @@ const PhonebookForm = () => {
       id: nanoid(),
     };
 
+    console.log('New contact:', newContact);
+
     dispatch(addContact(newContact))
       .then(() => {
         reset();
@@ -82,6 +84,7 @@ const PhonebookForm = () => {
             type="text"
             name="name"
             variant="outlined"
+            autoComplete="on"
           />
         </FormLabel>
 
@@ -93,6 +96,7 @@ const PhonebookForm = () => {
             type="tel"
             name="number"
             variant="outlined"
+            autoComplete="on"
           />
         </FormLabel>
         <Button type="submit" variant="contained">

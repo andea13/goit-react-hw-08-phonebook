@@ -14,10 +14,16 @@ export const handleFetchAllContactsFullfilled = (state, action) => {
 };
 
 export const handleAddContactFulfilled = (state, action) => {
-  console.log(action.payload);
-  state.contacts.isLoading = false;
-  state.contacts.error = null;
-  state.contacts.items = [...state.contacts.items, action.payload];
+  console.log('Action payload:', action.payload);
+  console.log('State before update:', state);
+  if (action.payload) {
+    state.contacts.isLoading = false;
+    state.contacts.error = null;
+    state.contacts.items = [...state.contacts.items, action.payload];
+    console.log('State after update:', state);
+  } else {
+    console.error('Invalid action payload:', action.payload);
+  }
 };
 
 export const handleDeleteContactFulfilled = (state, action) => {

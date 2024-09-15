@@ -7,6 +7,7 @@ import { fetchContacts } from '../../redux/contacts/contactsOperations';
 
 export const ContactsList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
+  console.log('filteredContacts:', filteredContacts);
 
   const dispatch = useDispatch();
 
@@ -17,8 +18,8 @@ export const ContactsList = () => {
   return (
     <ContactList>
       {filteredContacts &&
-        filteredContacts.map(({ name, number, id }) => (
-          <ContactsListItem name={name} number={number} key={id} id={id} />
+        filteredContacts.map(({ name, number, _id }) => (
+          <ContactsListItem name={name} number={number} key={_id} id={_id} />
         ))}
     </ContactList>
   );

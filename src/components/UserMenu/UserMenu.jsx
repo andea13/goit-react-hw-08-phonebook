@@ -4,6 +4,7 @@ import { UserMenuButton, UserMenuContainer } from './UserMenu.styled';
 import { logOut } from '../../redux/auth/authOperations';
 const UserMenu = () => {
   const { name } = useSelector(selectUser);
+  console.log('Name:', name);
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
