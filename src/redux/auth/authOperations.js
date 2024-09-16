@@ -2,7 +2,7 @@ import axios from 'axios';
 import { AuthSlice } from './AuthSlice';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://phonebook-backend-pxax.onrender.com';
 
 const token = {
   set(token) {

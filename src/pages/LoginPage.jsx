@@ -9,8 +9,8 @@ const LoginPage = () => {
     background-position: center;
     width: 100%;
     height: 100vh;
-    margin: 0; /* Ensure no margin */
-    padding: 0; /* Ensure no padding */
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
