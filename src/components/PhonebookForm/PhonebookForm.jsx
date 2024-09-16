@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, FormLabel } from './PhonebookForm.styled';
 import { addContact } from '../../redux/contacts/contactsOperations';
-import { selectContacts } from '../../redux/contacts/selectors';
+import { selectFilteredContacts } from '../../redux/contacts/selectors';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
@@ -12,7 +12,7 @@ const PhonebookForm = () => {
   const [inputs, setInputs] = useState({ name: '', number: '' });
   const dispatch = useDispatch();
 
-  const { items } = useSelector(selectContacts);
+  const contacts = useSelector(selectFilteredContacts) || [];
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -33,8 +33,8 @@ const PhonebookForm = () => {
       return;
     }
 
-    const duplicate = items.find(
-      item => item.name.toLowerCase() === inputs.name.toLowerCase()
+    const duplicate = contacts.find(
+      contact => contact.name.toLowerCase() === inputs.name.toLowerCase()
     );
     if (duplicate) {
       toast.error(`${inputs.name} is already in contacts`);

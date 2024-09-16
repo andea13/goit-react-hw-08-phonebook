@@ -15,6 +15,10 @@ export const ContactsList = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log('Contacts updated:', filteredContacts);
+  }, [filteredContacts]);
+
   return (
     <ContactList>
       {filteredContacts &&
