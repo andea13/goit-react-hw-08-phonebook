@@ -1,11 +1,31 @@
 import styled from '@emotion/styled';
+import backgroundImage from '../../components/images/light-background.png';
 
-export const RegistrationFormContainer = styled.div``;
+export const RegistrationFormContainer = styled.div`
+  background-image: url(${backgroundImage});
+  position: relative;
+  z-index: 10; 
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  @media (min-width: 768px) {
+  top: -29px; 
+  right: -192px;
+  ; 
+`;
 
 export const RegistrationFormWrapper = styled.form`
-  padding: 0 20px;
+  // padding: 0 20px;
+  display: flex;
+  flex-direction: column;
   margin: auto auto;
-  width: 500px;
+  min-width: 280px;
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+    width: 500px;
+  }
 `;
 
 export const RegistrationFormList = styled.ul`
@@ -25,10 +45,17 @@ export const RegistrationFormItem = styled.li`
 export const RegistrationFormLabel = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 34px;
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    font-size: 28px;
+  }
 `;
 
 export const RegistrationFormTitle = styled.h1`
   text-align: center;
   justify-content: center;
+  font-size: 30px;
 `;

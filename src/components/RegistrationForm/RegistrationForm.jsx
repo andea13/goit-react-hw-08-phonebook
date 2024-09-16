@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 // import { nanoid } from '@reduxjs/toolkit';
 import { register } from '../../redux/auth/authOperations';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   RegistrationFormContainer,
   RegistrationFormTitle,
@@ -22,6 +23,7 @@ const RegistrationForm = () => {
   });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -47,8 +49,14 @@ const RegistrationForm = () => {
     };
     console.log('New user:', newUser);
 
-    dispatch(register(newUser));
-    reset();
+    dispatch(register(newUser))
+      .then(() => {
+        reset();
+        navigate('/login'); // Redirect to login page after successful registration
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
   };
 
   const reset = () => {

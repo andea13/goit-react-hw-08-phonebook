@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../../redux/auth/authOperations';
 
 import {
@@ -17,6 +18,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const LoginForm = () => {
   const [loginInputs, setLoginInputs] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -40,6 +42,7 @@ const LoginForm = () => {
     dispatch(login(registeredUser))
       .then(() => {
         reset();
+        navigate('/contacts');
       })
       .catch(error => {
         console.log(error.message);

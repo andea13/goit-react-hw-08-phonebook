@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import backgroundImage from '../../components/images/pexels-photo-45718.webp';
+import backgroundImage from '../../components/images/homepage.png';
 export const HomeSection = styled.section`
   background-image: linear-gradient(
       to right,
@@ -8,7 +8,8 @@ export const HomeSection = styled.section`
     ),
     url(${backgroundImage});
   width: 100%;
-  padding-top: 370px;
+  height: 100vh;
+  // padding-top: 370px;
   padding-bottom: 200px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,21 +21,24 @@ export const HomeSection = styled.section`
 
 export const HomeTitle = styled.h1`
   display: block;
-  margin-top: 0;
-  margin-bottom: 30px;
-  margin-right: auto;
-  margin-left: auto;
+  position: absolute;
+  top: 231px;
+  left: 27px;
+  padding: 0;
+  margin: 0;
   max-width: 696px;
   color: #fff;
-  font-weight: 900;
-  font-size: 26px;
+  font-weight: 700;
+  font-size: 28px;
   line-height: 1.61;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-align: center;
 
   @media (min-width: 1200px) {
-    font-size: 44px;
+    top: 208px;
+    left: 50px;
+    font-size: 28px;
     line-height: 1.36;
   }
 `;

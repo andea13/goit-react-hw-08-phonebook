@@ -4,5 +4,5 @@ export const ContactList = styled.ul`
   display: grid;
   grid-template-columns: auto auto auto;
   column-gap: 20px;
-  padding: 0;
+  padding: 20px;
 `;
