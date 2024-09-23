@@ -13,6 +13,7 @@ const PhonebookForm = () => {
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectFilteredContacts) || [];
+  console.log('Contacts:', contacts);
 
   const handleChange = event => {
     const { name, value } = event.target;

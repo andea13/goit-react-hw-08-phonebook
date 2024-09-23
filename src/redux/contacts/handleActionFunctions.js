@@ -19,7 +19,7 @@ export const handleAddContactFulfilled = (state, action) => {
   if (action.payload) {
     state.contacts.isLoading = false;
     state.contacts.error = null;
-    state.contacts.items = [...state.contacts.contacts.items, action.payload];
+    state.contacts.items = [...state.contacts.items, action.payload.result];
     console.log('State after update:', state);
   } else {
     console.error('Invalid action payload:', action.payload);
